@@ -1,104 +1,113 @@
 
 
 let computerScore = 0;
-
 let playerScore = 0;
 
-            
+ 
+    function playerChoice(){
 
-function computerPlay() {
-    const items = ['Rock', 'Paper', 'Scissors'];
-    return items[Math.floor(Math.random()*items.length)];
-         
-    } 
-
-    function playerChoice() {
         let playerSelection = prompt("Please pick rock, paper or scissors");
-        return playerSelection
+        return playerSelection.toLowerCase();
+            
+        }
+
+    function computerPlay() {
+
+        const items = ['rock', 'paper', 'scissors'];
+        return items[Math.floor(Math.random()*items.length)];
+        
+        } 
+    
+
+    function singleRound(playerChoice, computerPlay){
+    
+
+        if (playerChoice == "rock" && computerPlay == "paper") {
+                computerScore++
+            return "Oh no, paper beats rock!";
+        } else if (playerChoice == "rock" && computerPlay == "rock") {
+
+            return "Whoops, looks like rock vs rock AKA a tie";
+        } else if (playerChoice == "rock" && computerPlay == "scissors") {
+                playerScore++
+            return "Nice, rock beats scissors";
+        } else if (playerChoice == "paper" && computerPlay == "rock") {
+                playerScore++
+            return "Wow! paper beats rock!"; 
+        } else if (playerChoice == "paper" && computerPlay == "paper") {
+        
+            return "Uhhh... paper v paper is a tie";
+        } else if (playerChoice == "paper" && computerPlay == "scissors") {
+                computerScore++
+            return "OHNO scissors beat ur paper";
+        } else if (playerChoice == "scissors" && computerPlay == "rock") {
+                computerScore++
+            return "Oh no! rock beats ur scissors";
+        } else if (playerChoice == "scissors" && computerPlay == "scissors") {
+
+            return "scissors vs scissors, thats a tie";
+        } else if (playerChoice == "scissors" && computerPlay == "paper") {
+                playerScore++
+            return "Wow, your scissors beats paper";
+        }   
     }
 
-
-    console.log(playerChoice());
-    console.log(computerPlay());
-
-    
-    
-    
-    function singleRound(playerChoice, computerPlay){
-    if (playerChoice == "Rock" && computerPlay == "Paper") {
-    
-        return "Oh no, paper beats rock!";
-    } else if (playerChoice == "Rock" && computerPlay == "Rock") {
-
-        return "Whoops, looks like rock vs rock AKA a tie";
-    } else if (playerChoice == "Rock" && computerPlay == "Scissors") {
-
-        return "Nice, rock beats scissors";
-    } else if (playerChoice == "Paper" && computerPlay == "Rock") {
-
-        return "Wow! Paper beats rock!"; 
-    } else if (playerChoice == "Paper" && computerPlay == "Paper") {
-        
-        return "Uhhh... Paper v paper is a tie";
-    } else if (playerChoice == "Paper" && computerPlay == "Scissors") {
-
-        return "OHNO scissors beat ur paper";
-    } else if (playerChoice == "Scissors" && computerPlay == "Rock") {
-
-        return "Oh no! ROck beats ur scissors";
-    } else if (playerChoice == "Scissors" && computerPlay == "Scissors") {
-
-        return "Scissors vs scissors, thats a tie";
-    } else if (playerChoice == "Scissors" && computerPlay == "Paper") {
-
-        return "Wow, your scissors beats paper";
-    }   } 
-    
-    
-    
-    
+    /* Not a needed function
     function playCounter(playerChoice, computerPlay) {
 
-        if (playerChoice == "Rock" && computerPlay == "Paper") {
-            return computerScore == computerScore + 1
-        } else if (playerChoice == "Rock" && computerPlay == "Scissors") {
-            return playerScore == playerScore + 1 
-        } else if (playerChoice == "Paper" && computerPlay == "Rock") {
-            return playerScore == playerScore + 1
-        } else if (playerChoice == "Paper" && computerPlay == "Scissors") {
-            return computerScore == computerScore + 1
-        } else if (playerChoice == "Scissors" && computerPlay == "paper") {
-            return playerScore == playerScore + 1
-        } else if (playerChoice == "Scissors" && computerPlay == "Rock") {
-            return computerScore == computerScore + 1
+        if (playerChoice == "rock" && computerPlay == "paper") {
+            return computerScore == computerScore++
+        } else if (playerChoice == "rock" && computerPlay == "scissors") {
+            return playerScore == playerScore++ 
+        } else if (playerChoice == "paper" && computerPlay == "rock") {
+            return playerScore == playerScore++
+        } else if (playerChoice == "paper" && computerPlay == "scissors") {
+            return computerScore == computerScore++
+        } else if (playerChoice == "scissors" && computerPlay == "paper") {
+            return playerScore == playerScore++
+        } else if (playerChoice == "scissors" && computerPlay == "rock") {
+            return computerScore == computerScore++
         }
-
-
     }
-    console.log(playCounter(playerChoice, computerPlay));
+*/
+
+function game(singleRound) {
     
-    /*function game (playerScore, computerScore) {
-
-        for ([i = 0]; [playerScore < 5 && computerScore < 5]; [i++]); {
-            
-            return playerChoice();
-            
-        }
-        
-    }
-
+    console.log(singleRound(playerChoice(), computerPlay()));
     
-     console.log(game(playerScore, computerScore)); */
+    
+    console.log(singleRound(playerChoice(), computerPlay()));
+    
 
-    function gameEnd(){
+    console.log(singleRound(playerChoice(), computerPlay()));
+    
+   
+    console.log(singleRound(playerChoice(), computerPlay()));
+    
+    
+    console.log(singleRound(playerChoice(), computerPlay()));
+    
+}
+
+    function gameEnd(playerScore, computerScore){
         if (playerScore > computerScore) {
             result = "Wow, you won!";
+            return result
+        } else if (playerScore < computerScore) {
+            result = "WOWOWOW, u lost";
+            return result
         } else {
-            result = "WOWOWOW, u lost"
-        
-    } }
+            result = "A tie! Wow!";
+            return result
+        }
+    }
+    console.log(game(singleRound));
+    console.log(computerScore);
+    console.log(playerScore);
     
-    /* if rock*/ 
+    console.log(gameEnd(playerScore, computerScore));
+    
+    
     
         
             //*Applcation will randomly generate an opponents 
