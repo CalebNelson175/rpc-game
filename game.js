@@ -71,7 +71,7 @@ let playerScore = 0;
     }
 */
 
-function game(singleRound) {
+/*function game(singleRound) {
     
     console.log(singleRound(playerChoice(), computerPlay()));
     
@@ -86,8 +86,16 @@ function game(singleRound) {
     
     
     console.log(singleRound(playerChoice(), computerPlay()));
-    
+
+    or (i = 0; i <= 5; i++){
+
+    console.log(singleRound(playerChoice(), computerPlay()));
+
 }
+} 
+*/ 
+
+
 
     function gameEnd(playerScore, computerScore){
         if (playerScore > computerScore) {
@@ -102,8 +110,8 @@ function game(singleRound) {
         }
     }
     console.log(game(singleRound));
-    console.log(computerScore);
-    console.log(playerScore);
+    console.log("Your opponent got a total score of " + computerScore);
+    console.log("You got a total score of " + playerScore);
     
     console.log(gameEnd(playerScore, computerScore));
     
@@ -115,3 +123,18 @@ function game(singleRound) {
         //*and play that against an inputted answer from the user. 
        // it will evaluate the values , afterwhich, it will return the resul
     
+       const container = document.querySelector('#container');
+
+       const content = document.createElement('div');
+       content.classList.add('content');
+       content.textContent = 'This is the glorious text-content';
+
+       container.appendChild(content);
+
+       const idea = document.querySelector(".rockPaperScissors");
+
+       const red = document.createElement("p");
+       red.classList.add("redStyle");
+       red.textContent = "Hey, I am red";
+       red.style.color = "red";
+       idea.appendChild(red);
